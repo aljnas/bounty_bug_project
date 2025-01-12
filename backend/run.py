@@ -1,5 +1,6 @@
 from app import create_app, db
 from app.models import User  # Asegúrate de importar el modelo
+from werkzeug.security import generate_password_hash  # Importa esto
 
 app = create_app()
 
@@ -10,7 +11,11 @@ with app.app_context():
     
     # Insertar un usuario de prueba
     if not User.query.filter_by(username="testuser").first():
-        new_user = User(username="testuser", email="test@example.com")
+        new_user = User(
+            username="testuser",
+            email="test@example.com",
+            password_hash=generate_password_hash("password123")  # Genera un hash de la contraseña
+        )
         db.session.add(new_user)
         db.session.commit()
         print("Usuario de prueba agregado")
