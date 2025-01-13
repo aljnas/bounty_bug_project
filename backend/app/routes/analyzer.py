@@ -49,3 +49,20 @@ def get_scan(scan_id):
         "result": scan.result,
         "created_at": scan.created_at
     })
+@analyzer_bp.route('/scans', methods=['GET'])
+def list_scans():
+    scans = Scan.query.all()
+    if not scans:
+        return jsonify({"error": "No scans found"}), 404
+    return jsonify({
+        "scans": [
+            {
+                "id": scan.id,
+                "target": scan.target,
+                "status": scan.status,
+                "result": scan.result,
+                "created_at": scan.created_at
+            }
+            for scan in scans
+        ]
+    }), 200

@@ -1,0 +1,36 @@
+# Archivos de entorno virtual
+venv/
+
+# Archivos de configuración específicos de IDEs
+.vscode/
+*.code-workspace
+
+# Archivos de sistema
+*.DS_Store
+Thumbs.db
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+
+# Bases de datos locales
+*.sqlite3
+*.db
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+# Configuración local
+.vs/
+.idea/
+*.log
+
+# Archivos generados por Python
+__pycache__/
+*.pyc
+
+# Archivos sensibles o temporales
+instance/*.db
+.env
